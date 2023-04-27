@@ -12,13 +12,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Set up environment
-        run: |
-          echo "export MY_VARIABLE=my_value" >> ~/.bashrc
-          source ~/.bashrc
-      - name: Use environment variable
-        run: echo $MY_VARIABLE
-        env:
-          MY_VARIABLE: ${{ env.MY_VARIABLE }}
+    steps:     
+       - name: Set environment variable
+         run: |
+            MY_VARIABLE="my_value"
+            echo "export MY_VARIABLE=$MY_VARIABLE" >> ~/.bashrc
+            source ~/.bashrc
+       - name: Use environment variable
+         run: echo $MY_VARIABLE
 
+
+      
+      
