@@ -15,9 +15,13 @@ jobs:
     steps:     
        - name: Set environment variable
          run: |
-           echo "::set-env name=MY_VARIABLE::my_value"
+           echo "export MY_VARIABLE=my_value" >> $GITHUB_ENV
+
        - name: Use environment variable
          run: echo $MY_VARIABLE
+         env:
+           MY_VARIABLE: ${{ env.MY_VARIABLE }}
+
 
 
 
